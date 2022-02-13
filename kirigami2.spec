@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.90.0
-Release  : 53
-URL      : https://download.kde.org/stable/frameworks/5.90/kirigami2-5.90.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.90/kirigami2-5.90.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.90/kirigami2-5.90.0.tar.xz.sig
+Version  : 5.91.0
+Release  : 54
+URL      : https://download.kde.org/stable/frameworks/5.91/kirigami2-5.91.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.91/kirigami2-5.91.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.91/kirigami2-5.91.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -18,16 +18,13 @@ Requires: kirigami2-lib = %{version}-%{release}
 Requires: kirigami2-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : buildreq-qmake
 BuildRequires : extra-cmake-modules-data
 BuildRequires : git
 BuildRequires : pkgconfig(Qt5Quick)
 BuildRequires : pkgconfig(Qt5QuickControls2)
 BuildRequires : pkgconfig(Qt5QuickTest)
 BuildRequires : pkgconfig(Qt5Svg)
-BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : qtdeclarative-dev
 BuildRequires : qttools-dev
 
 %description
@@ -73,15 +70,15 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.90.0
-cd %{_builddir}/kirigami2-5.90.0
+%setup -q -n kirigami2-5.91.0
+cd %{_builddir}/kirigami2-5.91.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641954854
+export SOURCE_DATE_EPOCH=1644795145
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,16 +94,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1641954854
+export SOURCE_DATE_EPOCH=1644795145
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
-cp %{_builddir}/kirigami2-5.90.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/kirigami2-5.90.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kirigami2-5.90.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kirigami2/3c3d7573e137d48253731c975ecf90d74cfa9efe
-cp %{_builddir}/kirigami2-5.90.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kirigami2/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/kirigami2-5.90.0/templates/kirigami/src/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kirigami2-5.90.0/templates/kirigami/src/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/kirigami2-5.90.0/templates/kirigami/src/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kirigami2-5.91.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/kirigami2-5.91.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kirigami2-5.91.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kirigami2/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kirigami2-5.91.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kirigami2/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kirigami2-5.91.0/templates/kirigami/src/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kirigami2-5.91.0/templates/kirigami/src/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/kirigami2-5.91.0/templates/kirigami/src/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 pushd clr-build
 %make_install
 popd
@@ -166,11 +163,21 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
+/usr/include/KF5/Kirigami2/Kirigami/KirigamiPluginFactory
+/usr/include/KF5/Kirigami2/Kirigami/PlatformTheme
+/usr/include/KF5/Kirigami2/Kirigami/TabletModeWatcher
+/usr/include/KF5/Kirigami2/Kirigami/Units
+/usr/include/KF5/Kirigami2/Kirigami/VirtualKeyboardWatcher
 /usr/include/KF5/Kirigami2/KirigamiPluginFactory
 /usr/include/KF5/Kirigami2/PlatformTheme
 /usr/include/KF5/Kirigami2/TabletModeWatcher
 /usr/include/KF5/Kirigami2/Units
-/usr/include/KF5/Kirigami2/kirigami2_export.h
+/usr/include/KF5/Kirigami2/kirigami/kirigami2_export.h
+/usr/include/KF5/Kirigami2/kirigami/kirigamipluginfactory.h
+/usr/include/KF5/Kirigami2/kirigami/platformtheme.h
+/usr/include/KF5/Kirigami2/kirigami/tabletmodewatcher.h
+/usr/include/KF5/Kirigami2/kirigami/units.h
+/usr/include/KF5/Kirigami2/kirigami/virtualkeyboardwatcher.h
 /usr/include/KF5/Kirigami2/kirigamipluginfactory.h
 /usr/include/KF5/Kirigami2/platformtheme.h
 /usr/include/KF5/Kirigami2/tabletmodewatcher.h
@@ -186,13 +193,14 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.90.0
+/usr/lib64/libKF5Kirigami2.so.5.91.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationWindow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractCard.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractChip.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractItemViewHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Action.qml
@@ -208,6 +216,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/CardsLayout.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/CardsListView.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/CheckableListItem.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/Chip.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ContextDrawer.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Dialog.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/FlexColumn.qml
@@ -240,7 +249,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/SwipeListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ToolBarApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/UrlButton.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/libkirigamiplugin.so
+/usr/lib64/qt5/qml/org/kde/kirigami.2/libKirigamiPlugin.so
 /usr/lib64/qt5/qml/org/kde/kirigami.2/plugins.qmltypes
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionIconGroup.qml
@@ -251,6 +260,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ContextDrawerActionItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CornerShadow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/DefaultCardBackground.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/DefaultChipBackground.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/DefaultListItemBackground.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/EdgeShadow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/GlobalDrawerActionItem.qml
@@ -288,6 +298,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/swipenavigator/templates/PageTab.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/AbstractCard.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/templates/AbstractChip.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/AbstractListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/ApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/InlineMessage.qml
