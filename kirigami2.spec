@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.101.0
-Release  : 64
-URL      : https://download.kde.org/stable/frameworks/5.101/kirigami2-5.101.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.101/kirigami2-5.101.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.101/kirigami2-5.101.0.tar.xz.sig
+Version  : 5.102.0
+Release  : 65
+URL      : https://download.kde.org/stable/frameworks/5.102/kirigami2-5.102.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.102/kirigami2-5.102.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.102/kirigami2-5.102.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
@@ -28,6 +28,9 @@ BuildRequires : pkgconfig(Qt5Svg)
 BuildRequires : qt6base-dev
 BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qttools-dev
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 Add here, with either a script that does a git checkout
@@ -72,31 +75,31 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.101.0
-cd %{_builddir}/kirigami2-5.101.0
+%setup -q -n kirigami2-5.102.0
+cd %{_builddir}/kirigami2-5.102.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1671036594
+export SOURCE_DATE_EPOCH=1673887861
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1671036594
+export SOURCE_DATE_EPOCH=1673887861
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp %{_builddir}/kirigami2-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -196,7 +199,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.101.0
+/usr/lib64/libKF5Kirigami2.so.5.102.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
@@ -317,7 +320,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/private/GenericDrawerIcon.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/private/IconPropertiesGroup.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/private/MenuIcon.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/templates/private/PassiveNotification.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/templates/private/PassiveNotificationsManager.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/qmldir
 
 %files license
