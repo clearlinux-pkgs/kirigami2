@@ -7,7 +7,7 @@
 #
 Name     : kirigami2
 Version  : 5.106.0
-Release  : 70
+Release  : 71
 URL      : https://download.kde.org/stable/frameworks/5.106/kirigami2-5.106.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.106/kirigami2-5.106.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.106/kirigami2-5.106.0.tar.xz.sig
@@ -84,7 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684799392
+export SOURCE_DATE_EPOCH=1685582546
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -117,7 +117,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684799392
+export SOURCE_DATE_EPOCH=1685582546
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp %{_builddir}/kirigami2-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -191,7 +191,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Kirigami2.so
 /usr/include/KF5/Kirigami2/Kirigami/KirigamiPluginFactory
 /usr/include/KF5/Kirigami2/Kirigami/PlatformTheme
 /usr/include/KF5/Kirigami2/Kirigami/TabletModeWatcher
@@ -221,7 +220,6 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Kirigami2.so.5
 /V3/usr/lib64/libKF5Kirigami2.so.5.106.0
 /V3/usr/lib64/qt5/qml/org/kde/kirigami.2/libKirigamiPlugin.so
 /usr/lib64/libKF5Kirigami2.so.5
