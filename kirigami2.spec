@@ -5,11 +5,11 @@
 # autospec version: v4
 # autospec commit: da8b975
 #
-# Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
+
 #
 Name     : kirigami2
 Version  : 5.115.0
-Release  : 81
+Release  : 82
 URL      : https://download.kde.org/stable/frameworks/5.115/kirigami2-5.115.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.115/kirigami2-5.115.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.115/kirigami2-5.115.0.tar.xz.sig
